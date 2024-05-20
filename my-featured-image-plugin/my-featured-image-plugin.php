@@ -3,7 +3,7 @@
 Plugin Name: My Featured Image Plugin
 Description: Generate featured images with custom text overlays from media library.
 Version: 1.2
-Author: Your Name
+Author: Arce
 */
 
 // Enqueue scripts and styles
