@@ -49,7 +49,7 @@ jQuery(document).ready(function($) {
             context.globalAlpha = 1.0;
             context.fillStyle = '#fff';
             context.textAlign = 'center';
-            wrapText(context, titleText, canvas.width / 2, canvas.height / 2, canvas.width - 40, 40);
+            wrapText(context, titleText, canvas.width / 2, canvas.height / 2, canvas.width - 40, 48); // Adjusted line height to 48
 
             var generatedImage = canvas.toDataURL('image/png');
             $('#generated-image').attr('src', generatedImage).show();
@@ -81,6 +81,7 @@ jQuery(document).ready(function($) {
     function wrapText(context, text, x, y, maxWidth, lineHeight) {
         var lines = text.split('\n');
         var fontSize = 40;
+        var adjustedLineHeight = lineHeight * 1.2; // Adjust line height by 1.2 times
 
         // Calculate the initial font size
         context.font = fontSize + 'px Arial';
@@ -100,9 +101,9 @@ jQuery(document).ready(function($) {
             }
         } while (isTooWide && fontSize > 10);
 
-        // Draw text lines
+        // Draw text lines with adjusted line height
         for (var i = 0; i < lines.length; i++) {
-            context.fillText(lines[i], x, y + (i * lineHeight) - ((lines.length - 1) * lineHeight / 2));
+            context.fillText(lines[i], x, y + (i * adjustedLineHeight) - ((lines.length - 1) * adjustedLineHeight / 2));
         }
     }
 });
